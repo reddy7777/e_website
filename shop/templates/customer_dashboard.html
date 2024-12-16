@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard</title>
+</head>
+<body>
+    <h1 style="text-align: center; background-color: rgb(240, 61, 61);">Welcome to the Customer Dashboard</h1>
+    <a href="{% url 'logout' %}" style="float: right; background-color: red; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;">Logout</a>
+
+
+    <div>
+        <h2 style="color: orangered;">Products Available</h2>
+        <ul>
+            {% for product in products %}
+                <li>
+                    <a href="{% url 'view_product' product.id %}" style="color: blue;">{{ product.name }}</a>
+                    
+                </li>
+            {% empty %}
+                <li>No products available</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <h2 style="color: blueviolet;">My Orders</h2>
+        <ul>
+            {% for order in orders %}
+                <li>Order #{{ order.id }} - {{ order.status }}</li>
+            {% empty %}
+                <li>No orders placed yet</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

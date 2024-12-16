@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Product{% endblock %}
+
+{% block content %}
+<a href="{% url 'logout' %}" style="float: right; background-color: red; color: white; padding: 6px 10px; text-decoration: none; border-radius: 5px;">Logout</a>
+<h2>Are you sure, you want to delete the product <strong style="color: blueviolet;">"{{ product.name }}"</strong> from the products list?</h2>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger" style="color: red;">Yes, Delete</button>
+    <a href="{% url 'vendor_products' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

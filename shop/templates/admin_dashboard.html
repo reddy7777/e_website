@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1 style="background-color: darkorange;text-align: center;">Welcome to the Admin Dashboard</h1>
+    <a href="{% url 'logout' %}" style="float: right; background-color: red; color: white; padding: 8px 10px; text-decoration: none; border-radius: 5px;">Logout</a>
+    <div>
+        <h2 style="color: coral;">Products</h2>
+        <ul>
+            {% for product in products %}
+                <li>{{ product.name }} - <a href="{% url 'edit_product' product.pk %}">Edit</a> | <a href="{% url 'delete_product' product.pk %}">Delete</a></li>
+            {% empty %}
+                <li>No products available</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <h2 style="color: orange;">Users</h2>
+        <ul>
+            {% for user in users %}
+                <li>{{ user.user.username }} - {{ user.user_type }}</li>
+            {% empty %}
+                <li>No users registered</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

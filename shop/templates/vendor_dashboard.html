@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Dashboard</title>
+</head>
+<body>
+    <h1 style="background-color: orange; text-align: center;">Welcome to Your Vendor Dashboard</h1>
+    <a href="{% url 'logout' %}" style="float: right; background-color: red; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;">Logout</a>
+    <div>
+        <h2 style="color: goldenrod;">Your Products</h2>
+        <ul>
+            {% for product in products %}
+                <li>{{ product.name }} - ${{ product.price }} - <a href="{% url 'edit_product' product.pk %}">Edit</a> | <a href="{% url 'delete_product' product.pk %}">Delete</a></li>
+            {% empty %}
+                <li>You have no products yet.</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'add_product' %}">Add a new product</a>
+    </div>
+</body>
+</html>
