@@ -1,0 +1,40 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Register as Customer{% endblock %}
+{% block content %}
+<h2 style="color: blueviolet;">Registration Form</h2>
+<form>
+    <label for="username"><span style="color: red;">*</span>Username:</label>
+    <input type="text" id="username" name="username" >&nbsp;&nbsp;<span style="color:blueviolet;font-size: 10px;">Maximum 25 characters or fewer, letters, digits and @ -_ symbols only.</span><br><br>
+    <label for="email"><span style="color: red;">*</span>Email:</label>
+    <input type="text" id="email" name="email"><br><br>
+    <label for="password">Password:</label>
+    <input type="text" id="password" name="password">
+    <ul style="font-size: 10px;color:orange;">
+        <li>Your password can’t be too similar to your other personal information.</li>
+        <li>Your password must contain at least 8 characters.</li>
+        <li>Your password can’t be a commonly used password.</li>
+        <li>Your password can’t be entirely numeric.</li>
+    </ul>
+    <label for="password confirm">Password confirmation:</label>
+    <input type="text" id="password confirm" name="password confirm">&nbsp;&nbsp;<span style="color: red;font-size: 10px;">Enter the same password as before, for verification.</span><br><br>  
+    <!-- <input type="submit" value="Register"><br><br> -->
+     
+    <!-- <p>Register as </p> <input list="browsers" name="browser">
+    <datalist id="browsers">
+      <option value="Admin">
+      <option value="Vendor">
+      <option value="Customer">
+    </datalist><br><br> -->
+    <input type="checkbox" id="user1" name="user1" value="Admin">
+    <label for="user1"> Registered as Admin</label><br>
+    <input type="checkbox" id="user2" name="user2" value="Vendor">
+    <label for="user2"> Registered as Vendor </label><br>
+    <input type="checkbox" id="user3" name="user3" value="Customer">
+    <label for="user3"> Registered as Customer</label><br><br>
+    <button type="button" onclick="alert('Registered!')" style="color: white;background-color: green;">Register</button> 
+  </form>
+
+
+{% endblock %}

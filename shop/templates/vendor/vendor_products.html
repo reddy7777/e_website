@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Vendor Products{% endblock %}
+
+{% block content %}
+<a href="{% url 'logout' %}" style="float: right; background-color: red; color: white; padding: 6px 10px; text-decoration: none; border-radius: 5px;">Logout</a>
+<h2 style="color: magenta;">My Products</h2>
+<a href="{% url 'add_product' %}" class="btn btn-success mb-3" style="color: green;">Add Product</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.stock }}</td>
+            <td>
+                <a href="{% url 'edit_product' product.pk %}" class="btn btn-warning btn-sm" style="color: darkorange;">Edit</a>
+                <a href="{% url 'delete_product' product.pk %}" class="btn btn-danger btn-sm" style="color: red;">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
